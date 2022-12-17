@@ -1,0 +1,21 @@
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="content-section">
+    {{ form.media }}
+    <form method="POST">
+        <fieldset>
+            <legend class="border-bottom pd-2 mb-4 text-center">Login Form</legend>
+            {% csrf_token %} <!-- Cross-Site Request Forgery, tipo de ataque hacker. Este token provee más seguridad -->
+            <div class="form-group">
+                {{ form|crispy }} <!-- Una variable de Django con la que se renderiza el formulario de login -->
+            </div>
+            <div class="form-group pt-4">
+                <button class="btn btn-outline-success" type="submit">Login</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

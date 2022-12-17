@@ -1,0 +1,27 @@
+<!-- Página para crear tabla para desplegar todo el inventario -->
+
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <table class="table table-striped table-bordered table-hovet">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Medida</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inventario in inventories %} <!-- ForLoop para popular el Grid del inventario -->
+                <tr style="cursor: pointer; cursor: hand;" onclick="window.location = '{% url 'vista_producto' inventario.id %}'"> <!-- Cambia la forma del puntero -->
+                    <th scope="row">{{ forloop.counter }}</th> <!-- Contador para # de artículos -->
+                    <th scope="row">{{ inventario.nombre }}</th>
+                    <th scope="row">{{ inventario.cantidad }}</th>
+                    <th scope="row">{{ inventario.medida }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

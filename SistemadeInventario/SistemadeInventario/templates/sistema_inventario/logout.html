@@ -1,0 +1,9 @@
+{% extends "../layout.html" %}
+{% load static %}
+{% block content %}
+<div class="content-section">
+    <small class="text-muted">
+        Su sesión se ha cerrado! <a href="{% url 'login' %}">Volver a iniciar sesión</a>
+    </small>
+</div>
+{% endblock %}

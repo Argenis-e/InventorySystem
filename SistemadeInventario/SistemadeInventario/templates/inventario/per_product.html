@@ -1,0 +1,41 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="row mx-auto justify-content-center">
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Nombre del material</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span> <i class="fab fa-regular fa-input-text"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventario.nombre }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Cantidad</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span> <i class="fab fa-regular fa-warehouse"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventario.cantidad }}</h3>
+            </div>
+        </div>
+
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Medida</h5>
+                <div style="font-size: 30px;" class="text-center">
+                    <span> <i class="fab fa-regular fa-bars"></i></span>
+                </div>
+                <h3 class="text-center">{{ inventario.medida }}</h3>
+            </div>
+        </div>
+
+        <a class="btn btn-outline-success btn-sm mb-3" href="{% url 'actualizar_producto' inventario.id %}">Actualizar producto</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'borrar_producto' inventario.id %}">Borrar producto</a>
+
+    </div>
+</div>
+{% endblock %}
